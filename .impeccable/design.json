@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T17:45:00Z",
+  "title": "Design System: What the Aspect Ratio",
+  "extensions": {
+    "colorMeta": {
+      "active-red": { "role": "primary", "displayName": "Active Red", "canonical": "#d9302c", "tonalRamp": ["oklch(22% 0.07 28)", "oklch(32% 0.11 28)", "oklch(42% 0.15 28)", "oklch(52% 0.19 28)", "oklch(58.5% 0.2 28)", "oklch(70% 0.14 28)", "oklch(82% 0.08 28)", "oklch(94% 0.03 28)"] },
+      "active-red-wash": { "role": "primary", "displayName": "Active Red Wash", "canonical": "rgba(217, 48, 44, 0.09)" },
+      "frame-blue": { "role": "secondary", "displayName": "Frame Blue", "canonical": "#3aa0ff", "tonalRamp": ["oklch(22% 0.06 252)", "oklch(32% 0.09 252)", "oklch(44% 0.13 252)", "oklch(56% 0.16 252)", "oklch(67.5% 0.17 252)", "oklch(76% 0.12 252)", "oklch(86% 0.07 252)", "oklch(95% 0.025 252)"] },
+      "frame-blue-wash": { "role": "secondary", "displayName": "Frame Blue Wash", "canonical": "rgba(58, 160, 255, 0.1)" },
+      "chart-ground": { "role": "neutral", "displayName": "Chart Ground", "canonical": "#0c0d0f", "tonalRamp": ["oklch(15.5% 0.004 265)", "oklch(19% 0.004 265)", "oklch(25% 0.004 265)", "oklch(35% 0.004 265)", "oklch(50% 0.004 265)", "oklch(65% 0.004 265)", "oklch(80% 0.003 265)", "oklch(95% 0.002 265)"] },
+      "chart-ground-raised": { "role": "neutral", "displayName": "Chart Ground Raised", "canonical": "#131417" },
+      "bezel": { "role": "neutral", "displayName": "Bezel", "canonical": "#17181b" },
+      "glass": { "role": "neutral", "displayName": "Glass", "canonical": "#000000" },
+      "chart-white": { "role": "neutral", "displayName": "Chart White", "canonical": "#e9e7e1", "tonalRamp": ["oklch(18% 0.006 90)", "oklch(28% 0.006 90)", "oklch(40% 0.007 90)", "oklch(52% 0.008 90)", "oklch(64% 0.008 90)", "oklch(76% 0.008 90)", "oklch(86% 0.008 90)", "oklch(93.2% 0.008 90)"] },
+      "chart-white-dim": { "role": "neutral", "displayName": "Chart White Dim", "canonical": "rgba(233, 231, 225, 0.66)" },
+      "chart-white-faint": { "role": "neutral", "displayName": "Chart White Faint", "canonical": "rgba(233, 231, 225, 0.42)" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "rgba(233, 231, 225, 0.16)" },
+      "hairline-strong": { "role": "neutral", "displayName": "Hairline Strong", "canonical": "rgba(233, 231, 225, 0.32)" },
+      "on-red": { "role": "neutral", "displayName": "On Red", "canonical": "#ffffff" }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Headline", "purpose": "Rankings page title only." },
+      "title": { "displayName": "Title", "purpose": "Stage device name, rail title, verdict winner name." },
+      "body": { "displayName": "Body", "purpose": "The one reading size; weight 500-700 carries hierarchy." },
+      "body-sm": { "displayName": "Body Small", "purpose": "Specs, legend, table cells, secondary buttons, input text." },
+      "figure": { "displayName": "Figure", "purpose": "Stat-strip numbers, mono tabular." },
+      "measure": { "displayName": "Measure", "purpose": "Inline ratios, inches, pixels and scores." },
+      "label": { "displayName": "Stencilled Label", "purpose": "Field names, stat terms, table heads and frame tags; mono caps." }
+    },
+    "shadows": [
+      { "name": "frame-line-active", "value": "inset 0 0 0 1.5px var(--red)", "purpose": "The active ratio's frame line, drawn inside the picture box." },
+      { "name": "frame-line-other", "value": "inset 0 0 0 1px var(--blue)", "purpose": "Every non-active ratio's frame line." },
+      { "name": "rank-one-marker", "value": "inset 3px 0 0 var(--red)", "purpose": "Left marker on the rank-1 cell." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All transitions." },
+      { "name": "dur-frame", "value": "520ms", "purpose": "Frame line, picture box, device size/radius and score bar changes." },
+      { "name": "dur-ui", "value": "160ms", "purpose": "Hover and selection colour feedback." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "720px" },
+      { "name": "trailer-hide", "value": "900px" },
+      { "name": "trailer-narrow", "value": "1200px" },
+      { "name": "rail-stack", "value": "1100px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Format Segmented Control",
+      "kind": "custom",
+      "refersTo": "segmented-format",
+      "description": "Primary action: the release format picker; red marks the active ratio, common screen shapes sit after a dashed divider.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button class=\"ds-seg__opt\" role=\"radio\" aria-checked=\"true\">IMAX <span class=\"ds-measure\">1.43</span></button><button class=\"ds-seg__opt\" role=\"radio\" aria-checked=\"false\">IMAX <span class=\"ds-measure\">1.90</span></button><button class=\"ds-seg__opt\" role=\"radio\" aria-checked=\"false\">Scope <span class=\"ds-measure\">2.39</span></button><button class=\"ds-seg__opt ds-seg__opt--group\" role=\"radio\" aria-checked=\"false\"><span class=\"ds-measure\">16:9</span></button></div>",
+      "css": ".ds-seg { display: flex; height: 36px; border: 1px solid var(--hair-strong, rgba(233,231,225,.32)); background: var(--bg, #0c0d0f); font: 500 14px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); } .ds-seg__opt { display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 0; border-left: 1px solid var(--hair-strong, rgba(233,231,225,.32)); background: none; color: var(--ink-dim, rgba(233,231,225,.66)); font: inherit; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-seg__opt:first-child { border-left: 0; } .ds-seg__opt--group { margin-left: 8px; border-left: 1px dashed var(--hair-strong, rgba(233,231,225,.32)); } .ds-seg__opt:hover { color: var(--ink, #e9e7e1); background: var(--hair, rgba(233,231,225,.16)); } .ds-seg__opt:focus-visible { outline: 2px solid var(--blue, #3aa0ff); outline-offset: -2px; } .ds-seg__opt[aria-checked='true'] { background: var(--red, #d9302c); color: #fff; font-weight: 700; } .ds-measure { font-family: var(--font-measure, 'Martian Mono', ui-monospace, monospace); font-variant-numeric: tabular-nums; font-size: 12px; opacity: .85; }"
+    },
+    {
+      "name": "Ink Segmented Control",
+      "kind": "chip",
+      "refersTo": "segmented-ink-active",
+      "description": "Lenses, scaling and other non-ratio choices; selection is an ink fill, never red.",
+      "html": "<div class=\"ds-lenses\"><button class=\"ds-lens\" aria-pressed=\"true\">Overall</button><button class=\"ds-lens\" aria-pressed=\"false\">Picture</button><button class=\"ds-lens\" aria-pressed=\"false\">Fill</button><button class=\"ds-lens\" aria-pressed=\"false\">Pixels</button></div>",
+      "css": ".ds-lenses { display: inline-grid; grid-template-columns: repeat(4, auto); border: 1px solid var(--hair-strong, rgba(233,231,225,.32)); background: var(--bg, #0c0d0f); } .ds-lens { min-height: 34px; padding: 4px 12px; border: 0; border-left: 1px solid var(--hair, rgba(233,231,225,.16)); background: none; color: var(--ink, #e9e7e1); font: 600 12px/1.15 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-lens:first-child { border-left: 0; } .ds-lens:hover { background: var(--hair, rgba(233,231,225,.16)); } .ds-lens:focus-visible { outline: 2px solid var(--blue, #3aa0ff); outline-offset: -2px; } .ds-lens[aria-pressed='true'] { background: var(--ink, #e9e7e1); color: var(--bg, #0c0d0f); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Primary in-page action (e.g. Compare these); ink fill on hover.",
+      "html": "<button class=\"ds-btn-outline\">Compare these</button>",
+      "css": ".ds-btn-outline { min-height: 34px; padding: 4px 12px; border: 1px solid var(--ink, #e9e7e1); border-radius: 0; background: var(--bg, #0c0d0f); color: var(--ink, #e9e7e1); font: 600 14px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1), color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-outline:hover { background: var(--ink, #e9e7e1); color: var(--bg, #0c0d0f); } .ds-btn-outline:focus-visible { outline: 2px solid var(--blue, #3aa0ff); outline-offset: 2px; } .ds-btn-outline:disabled { border-color: var(--hair-strong, rgba(233,231,225,.32)); color: var(--ink-dim, rgba(233,231,225,.66)); cursor: not-allowed; }"
+    },
+    {
+      "name": "Hairline Button",
+      "kind": "button",
+      "refersTo": "button-hairline",
+      "description": "Utility action (Copy link, Open); dim until hovered.",
+      "html": "<button class=\"ds-btn-hair\"><svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M6.5 9.5l3-3M7 4.5l1-1a2.5 2.5 0 013.5 3.5l-1 1M9 11.5l-1 1A2.5 2.5 0 014.5 9l1-1\"/></svg>Copy link</button>",
+      "css": ".ds-btn-hair { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid var(--hair-strong, rgba(233,231,225,.32)); border-radius: 0; background: var(--bg, #0c0d0f); color: var(--ink-dim, rgba(233,231,225,.66)); font: 400 12px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); cursor: pointer; transition: color 160ms cubic-bezier(0.16,1,0.3,1), border-color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-hair:hover { color: var(--ink, #e9e7e1); border-color: var(--ink, #e9e7e1); } .ds-btn-hair:focus-visible { outline: 2px solid var(--blue, #3aa0ff); outline-offset: 2px; }"
+    },
+    {
+      "name": "Trailer Field",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Square input joined to its button as one bordered strip; red border when invalid.",
+      "html": "<div class=\"ds-field\"><input class=\"ds-input\" placeholder=\"Paste a YouTube trailer link\"><button class=\"ds-input-btn\">Load</button></div>",
+      "css": ".ds-field { display: flex; font: 400 12px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); } .ds-input { width: 260px; height: 32px; padding: 0 12px; border: 1px solid var(--hair-strong, rgba(233,231,225,.32)); border-radius: 0; background: var(--bg, #0c0d0f); color: var(--ink, #e9e7e1); font: inherit; caret-color: var(--red, #d9302c); } .ds-input::placeholder { color: var(--ink-faint, rgba(233,231,225,.42)); } .ds-input:focus-visible { outline: 2px solid var(--blue, #3aa0ff); outline-offset: 2px; } .ds-input[aria-invalid='true'] { border-color: var(--red, #d9302c); } .ds-input-btn { height: 32px; padding: 0 12px; border: 1px solid var(--hair-strong, rgba(233,231,225,.32)); border-left: 0; background: var(--bg, #0c0d0f); color: var(--ink, #e9e7e1); font: 600 12px/1.4 inherit; cursor: pointer; transition: background-color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-input-btn:hover { background: var(--hair, rgba(233,231,225,.16)); }"
+    },
+    {
+      "name": "View Tabs",
+      "kind": "nav",
+      "refersTo": "nav-tab",
+      "description": "Nav-tier view switch; current tab is ink 700 with a 2px ink underline on the tier rule.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab\" aria-current=\"page\" href=\"#\">Viewer</a><a class=\"ds-tab\" href=\"#\">Compare</a><a class=\"ds-tab\" href=\"#\">Rankings</a></nav>",
+      "css": ".ds-tabs { display: flex; height: 52px; border-bottom: 1px solid var(--hair, rgba(233,231,225,.16)); background: var(--bg, #0c0d0f); font: 500 14px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); } .ds-tab { position: relative; display: flex; align-items: center; padding: 0 16px; color: var(--ink-dim, rgba(233,231,225,.66)); text-decoration: none; transition: color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-tab:hover { color: var(--ink, #e9e7e1); } .ds-tab:focus-visible { outline: 2px solid var(--blue, #3aa0ff); outline-offset: -2px; } .ds-tab[aria-current='page'] { color: var(--ink, #e9e7e1); font-weight: 700; } .ds-tab[aria-current='page']::after { content: ''; position: absolute; left: 16px; right: 16px; bottom: -1px; height: 2px; background: var(--ink, #e9e7e1); }"
+    },
+    {
+      "name": "Verdict Box",
+      "kind": "card",
+      "refersTo": "verdict-box",
+      "description": "Best-for-ratio answer; the one boxed panel bordered in red.",
+      "html": "<div class=\"ds-verdict\"><div class=\"ds-verdict__t\">Best for <span class=\"ds-mono\">1.43</span></div><div class=\"ds-verdict__n\">iPad Pro 13</div><p class=\"ds-verdict__p\">Shows the most picture at the largest size with the least letterboxing.</p></div>",
+      "css": ".ds-verdict { max-width: 360px; padding: 12px 16px; border: 1px solid var(--red, #d9302c); background: var(--bg, #0c0d0f); color: var(--ink, #e9e7e1); font: 400 14px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); } .ds-verdict__t { font-weight: 700; } .ds-mono { font: 500 12px var(--font-measure, 'Martian Mono', ui-monospace, monospace); } .ds-verdict__n { margin-top: 8px; font-size: 17px; font-weight: 700; line-height: 1.2; } .ds-verdict__p { margin: 8px 0 0; color: var(--ink-dim, rgba(233,231,225,.66)); }"
+    },
+    {
+      "name": "Ranking Table Row",
+      "kind": "custom",
+      "refersTo": "segmented-format-active",
+      "description": "Rank-1 row: red numeral, 3px red inset marker, red wash; blue score bar under each score.",
+      "html": "<table class=\"ds-rank\"><tr class=\"ds-rank__row ds-rank__row--first\"><td class=\"ds-rank__n\">1</td><td class=\"ds-rank__dev\">iPad Pro 13</td><td class=\"ds-rank__s\">94<span class=\"ds-rank__bar\"><span style=\"width:94%\"></span></span></td></tr><tr class=\"ds-rank__row\"><td class=\"ds-rank__n\">2</td><td class=\"ds-rank__dev\">Galaxy Tab S10</td><td class=\"ds-rank__s\">88<span class=\"ds-rank__bar\"><span style=\"width:88%\"></span></span></td></tr></table>",
+      "css": ".ds-rank { width: 320px; border-collapse: collapse; background: var(--bg, #0c0d0f); color: var(--ink, #e9e7e1); font: 400 12px/1.4 var(--font-ui, 'Schibsted Grotesk Variable', system-ui, sans-serif); } .ds-rank__row { border-bottom: 1px solid var(--hair, rgba(233,231,225,.16)); } .ds-rank__row td { padding: 8px 4px; } .ds-rank__n, .ds-rank__s { text-align: right; font-family: var(--font-measure, 'Martian Mono', ui-monospace, monospace); font-variant-numeric: tabular-nums; } .ds-rank__n { width: 30px; color: var(--ink-dim, rgba(233,231,225,.66)); padding-right: 8px; } .ds-rank__dev { font-weight: 600; } .ds-rank__s { width: 58px; } .ds-rank__bar { display: block; height: 2px; margin-top: 4px; background: var(--hair, rgba(233,231,225,.16)); } .ds-rank__bar span { display: block; height: 100%; background: var(--blue, #3aa0ff); } .ds-rank__row--first { background: var(--red-wash, rgba(217,48,44,.09)); } .ds-rank__row--first .ds-rank__n { color: var(--red, #d9302c); font-weight: 500; box-shadow: inset 3px 0 0 var(--red, #d9302c); }"
+    },
+    {
+      "name": "Framing Chart Glass",
+      "kind": "custom",
+      "refersTo": "frame-tag-active",
+      "description": "Signature: device glass under the registration grid, active red frame with corner ticks and tag, blue frame for another ratio, centre crosshair.",
+      "html": "<div class=\"ds-stage\"><div class=\"ds-dev\"><div class=\"ds-glass\"><div class=\"ds-blue\" style=\"left:0;right:0;top:15%;bottom:15%\"><span class=\"ds-tag ds-tag--blue\">1.90</span></div><div class=\"ds-red\" style=\"left:12%;right:12%;top:0;bottom:0\"><span class=\"ds-tag ds-tag--red\">1.43 IMAX</span><i class=\"ds-tick\"></i></div><i class=\"ds-cross-h\"></i><i class=\"ds-cross-v\"></i><i class=\"ds-ring\"></i></div></div></div>",
+      "css": ".ds-stage { display: grid; place-items: center; width: 420px; height: 280px; background: radial-gradient(ellipse at center, transparent 45%, #0c0d0f 100%), linear-gradient(rgba(233,231,225,.16) 1px, transparent 1px) center / 80px 80px, linear-gradient(90deg, rgba(233,231,225,.16) 1px, transparent 1px) center / 80px 80px, #0c0d0f; } .ds-dev { padding: 10px; background: var(--bezel, #17181b); border: 1px solid var(--hair-strong, rgba(233,231,225,.32)); border-radius: 22px; } .ds-glass { position: relative; width: 300px; height: 210px; overflow: hidden; background: #000; border-radius: 12px; } .ds-red, .ds-blue { position: absolute; } .ds-red { z-index: 3; box-shadow: inset 0 0 0 1.5px var(--red, #d9302c); transition: all 520ms cubic-bezier(0.16,1,0.3,1); } .ds-blue { z-index: 2; box-shadow: inset 0 0 0 1px var(--blue, #3aa0ff); } .ds-tick { position: absolute; left: 0; bottom: 0; width: 10px; height: 10px; background: linear-gradient(#d9302c,#d9302c) bottom left / 10px 3px no-repeat, linear-gradient(#d9302c,#d9302c) bottom left / 3px 10px no-repeat; } .ds-tag { position: absolute; padding: 4px 8px; font: 500 11px/1.2 var(--font-measure, 'Martian Mono', ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; } .ds-tag--red { top: 0; left: 0; background: var(--red, #d9302c); color: #fff; } .ds-tag--blue { top: 0; right: 0; background: var(--bg, #0c0d0f); border: 1px solid var(--blue, #3aa0ff); color: var(--blue, #3aa0ff); } .ds-cross-h, .ds-cross-v, .ds-ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 4; } .ds-cross-h { width: 36%; height: 1px; background: rgba(233,231,225,.32); } .ds-cross-v { height: 36%; width: 1px; background: rgba(233,231,225,.32); } .ds-ring { height: 24%; aspect-ratio: 1; border: 1px solid rgba(233,231,225,.32); border-radius: 50%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Projectionist's Framing Chart",
+    "overview": "The whole app is one framing chart, the kind a projectionist tapes up to line a picture up with a screen. A near-black ground carries a faint registration grid. Every release ratio is drawn on it as a labelled frame line, and the device's own glass sits under those lines. The active ratio is the one red line on the chart. Every other ratio is a blue hairline. The chart is a working instrument, not a showroom. It refuses the usual category look of glossy device mockups on a dark spec page.\n\nThe density is like an instrument panel. There is one reading size (14px), and hierarchy comes from weight, position and the switch from grotesk to mono, not from big type. Structure comes from 1px rules, not fills or shadows. Measurements, ratios and frame tags are set in mono, stencilled in small caps, so a number always reads as a measurement. Controls have square corners. Devices keep their real corner radii, because that radius is a measured fact about the device.\n\nMotion has one job: when the format changes, the red frame line and the picture box glide to the new ratio over 520ms on a long ease-out, and the blue lines stay where they are. UI feedback is a fast 160ms colour change. Reduced motion turns both off.",
+    "keyCharacteristics": [
+      "Near-black chart ground with a faint 80px registration grid and a vignette on the stage.",
+      "Red is the active ratio and nothing else. Blue draws every other ratio and every score bar.",
+      "1px hairline rules carry all structure. There are no drop shadows.",
+      "Schibsted Grotesk for UI. Martian Mono only for measurements, ratios and stencilled labels.",
+      "Square controls. Devices keep their real radii.",
+      "One signature motion: the red frame line moves, everything else holds still."
+    ],
+    "rules": [
+      { "name": "The One Red Rule", "body": "Red marks the active ratio and nothing else (rank 1 and the verdict box are the active ratio's winner, so they count as the same signal). The only exception is the error border on an invalid input. Every other selected state, such as lenses, orientation, scaling and view tabs, uses an ink fill or ink underline, never red.", "section": "colors" },
+      { "name": "The Blue Is Everything Else Rule", "body": "Non-active frame lines, score bars, links and focus all use Frame Blue. Blue never marks a selection.", "section": "colors" },
+      { "name": "The Mono Means Measured Rule", "body": "Martian Mono appears only on measurements, ratios, stencilled field names and frame tags. Prose and controls never use it.", "section": "typography" },
+      { "name": "The One Reading Size Rule", "body": "Hierarchy comes from weight and position on a 14px base. Nothing above 24px exists.", "section": "typography" },
+      { "name": "The Drawn Not Lifted Rule", "body": "If something needs emphasis, draw a line around it or inside it. Don't lift it with a shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give red only to the active ratio and its rank-1 result, and use ink fills for every other selected state.",
+      "Do draw every non-active ratio, score bar, link underline and focus ring in Frame Blue (#3aa0ff).",
+      "Do set every measurement, ratio and frame tag in Martian Mono with tabular figures, and keep prose and controls in Schibsted Grotesk.",
+      "Do build structure from 1px hairlines (16% / 32% chart-white) and square corners.",
+      "Do keep devices at their real measured corner radii.",
+      "Do animate frame changes on the 520ms frame timing with `cubic-bezier(0.16, 1, 0.3, 1)`, and UI feedback at 160ms."
+    ],
+    "donts": [
+      "Don't use red for lenses, tabs, orientation, scaling or any state other than the active ratio.",
+      "Don't add drop shadows. Inset strokes for frame lines and the rank marker are the only shadow use.",
+      "Don't round controls, tags or panels.",
+      "Don't set prose or button text in the mono face.",
+      "Don't go above 24px type or add a separate display face."
+    ]
+  }
+}

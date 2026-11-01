@@ -1,0 +1,378 @@
+.rview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-7);
+}
+
+.rview__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
+}
+
+.rview__title {
+  font-size: clamp(17px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.rview__title .measure {
+  font-weight: 500;
+  font-size: 0.85em;
+}
+
+.rview__h3 {
+  font-size: var(--text);
+  font-weight: 700;
+}
+
+/* Segmented controls: ink fill when selected. */
+.rview__lenses {
+  display: inline-flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--hair-strong);
+}
+
+.rview__lens {
+  min-height: 34px;
+  padding: var(--space-1) var(--space-3);
+  font-weight: 600;
+  border-left: 1px solid var(--hair);
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.rview__lens:first-child {
+  border-left: 0;
+}
+
+.rview__lens:hover,
+.rview__chip:hover {
+  background: var(--hair);
+}
+
+.rview__lens[aria-pressed='true'],
+.rview__chip[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.rview__lens:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Best in each family: ruled strip, like a chart legend. */
+.rview__besthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.rview__compare {
+  min-height: 34px;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--ink);
+  font-weight: 600;
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.rview__compare:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.rview__compare:disabled {
+  border-color: var(--hair-strong);
+  color: var(--ink-dim);
+  cursor: not-allowed;
+}
+
+.rview__strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
+  list-style: none;
+  border-top: 1px solid var(--hair-strong);
+  border-left: 1px solid var(--hair-strong);
+}
+
+.rview__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-right: 1px solid var(--hair-strong);
+  border-bottom: 1px solid var(--hair-strong);
+}
+
+.rview__cellname {
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.rview__cellnums {
+  font-size: var(--text-sm);
+  color: var(--ink-dim);
+}
+
+.rview__open {
+  margin-top: var(--space-2);
+  min-height: 30px;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--hair-strong);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: background-color var(--dur-ui) var(--ease-out);
+}
+
+.rview__open:hover {
+  background: var(--hair);
+  border-color: var(--ink-dim);
+}
+
+/* Full table */
+.rview__all {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rview__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.rview__chip {
+  min-height: 34px;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--hair-strong);
+  font-weight: 600;
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.rview__scroll {
+  max-height: min(680px, 72dvh);
+  overflow: auto;
+  border: 1px solid var(--hair);
+}
+
+.rview__table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+}
+
+.rview__th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0;
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--hair-strong);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.rview__th--num {
+  text-align: right;
+}
+
+.rview__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 38px;
+  padding: var(--space-2) var(--space-3);
+  font: 500 var(--label) / 1.2 var(--font-measure);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color var(--dur-ui) var(--ease-out);
+}
+
+.rview__th--num .rview__sort {
+  justify-content: flex-end;
+}
+
+.rview__sort:hover,
+.rview__th[aria-sort='ascending'] .rview__sort,
+.rview__th[aria-sort='descending'] .rview__sort {
+  color: var(--ink);
+}
+
+.rview__sort:focus-visible {
+  outline-offset: -2px;
+}
+
+.rview__sorticon {
+  flex: none;
+}
+
+.rview__row {
+  border-bottom: 1px solid var(--hair);
+}
+
+.rview__row:hover {
+  background: var(--hair);
+}
+
+.rview__row--first {
+  background: var(--red-wash);
+}
+
+.rview__td {
+  padding: var(--space-2) var(--space-3);
+  vertical-align: middle;
+}
+
+.rview__num,
+.rview__rank {
+  text-align: right;
+  font-size: var(--text-sm);
+}
+
+.rview__rank {
+  color: var(--ink-dim);
+}
+
+.rview__row--first .rview__rank {
+  color: var(--red);
+  font-weight: 500;
+  box-shadow: inset 3px 0 0 var(--red);
+}
+
+.rview__devcell {
+  min-width: 220px;
+}
+
+.rview__dev {
+  padding: 0;
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.rview__dev:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+  text-underline-offset: 3px;
+}
+
+.rview__unverified {
+  margin-left: var(--space-2);
+  padding: 1px var(--space-1);
+  border: 1px solid var(--hair-strong);
+}
+
+.rview__scorecell {
+  min-width: 88px;
+  text-align: right;
+}
+
+.rview__score {
+  display: block;
+  font-weight: 500;
+}
+
+.rview__bar {
+  display: block;
+  height: 2px;
+  margin-top: var(--space-1);
+  background: var(--hair);
+}
+
+.rview__barfill {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+  transition: width var(--dur-frame) var(--ease-out);
+}
+
+.rview__note {
+  max-width: 68ch;
+  color: var(--ink-dim);
+  text-wrap: pretty;
+}
+
+@media (max-width: 640px) {
+  .rview {
+    padding: var(--space-4) var(--space-4) var(--space-6);
+  }
+
+  .rview__lenses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .rview__lens:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .rview__lens:nth-child(n + 3) {
+    border-top: 1px solid var(--hair);
+  }
+
+  .rview__strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Phones: keep the answer columns (rank, device, screen used, score) inside the viewport. */
+@media (max-width: 720px) {
+  .rview__table th:nth-child(3),
+  .rview__table td:nth-child(3),
+  .rview__table th:nth-child(4),
+  .rview__table td:nth-child(4),
+  .rview__table th:nth-child(5),
+  .rview__table td:nth-child(5),
+  .rview__table th:nth-child(7),
+  .rview__table td:nth-child(7),
+  .rview__table th:nth-child(8),
+  .rview__table td:nth-child(8) {
+    display: none;
+  }
+  .rview__table {
+    min-width: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .rview__table th:nth-child(1) {
+    width: 74px;
+  }
+  .rview__table th:nth-child(6) {
+    width: 76px;
+  }
+  .rview__table th:nth-child(9) {
+    width: 64px;
+  }
+  .rview__devcell {
+    min-width: 0;
+  }
+  .rview__scorecell {
+    min-width: 56px;
+  }
+  .rview__th,
+  .rview__td {
+    padding-inline: 6px;
+  }
+  .rview__th {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,222 @@
+.dpick {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dpick__button {
+  min-height: 34px;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--hair-strong);
+  font-weight: 600;
+  color: var(--ink);
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    border-color var(--dur-ui) var(--ease-out);
+}
+
+.dpick__button .measure {
+  font-weight: 500;
+  font-size: var(--text-sm);
+}
+
+.dpick__button:hover {
+  background: var(--hair);
+  border-color: var(--ink-dim);
+}
+
+.dpick__button[aria-expanded='true'] {
+  background: var(--hair);
+  border-color: var(--ink);
+}
+
+.dpick__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.dpick__chip {
+  display: inline-flex;
+  align-items: stretch;
+  min-height: 34px;
+  border: 1px solid var(--hair-strong);
+}
+
+.dpick__chipname {
+  display: flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.dpick__chipx {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  border-left: 1px solid var(--hair);
+  color: var(--ink-dim);
+  transition:
+    background-color var(--dur-ui) var(--ease-out),
+    color var(--dur-ui) var(--ease-out);
+}
+
+.dpick__chipx:hover {
+  background: var(--hair);
+  color: var(--ink);
+}
+
+.dpick__chipx:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Popover */
+.dpick__pop {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(340px, calc(100vw - 2 * var(--space-4)));
+  max-height: min(420px, 70dvh);
+  padding: var(--space-3);
+  background: var(--bg-raised);
+  border: 1px solid var(--hair-strong);
+}
+
+.dpick__search {
+  flex: none;
+  width: 100%;
+  min-height: 34px;
+  padding: var(--space-1) var(--space-2);
+  background: var(--bg);
+  border: 1px solid var(--hair-strong);
+  border-radius: 0;
+  appearance: none;
+}
+
+.dpick__search::placeholder {
+  color: var(--ink-dim);
+  opacity: 1;
+}
+
+.dpick__search:focus-visible {
+  outline-offset: 0;
+  border-color: var(--blue);
+}
+
+.dpick__hint {
+  flex: none;
+  font-size: var(--text-sm);
+  color: var(--ink-dim);
+}
+
+.dpick__hint--full {
+  color: var(--ink);
+}
+
+.dpick__list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin-right: calc(-1 * var(--space-1));
+  padding-right: var(--space-1);
+}
+
+.dpick__group {
+  border: 0;
+  margin-bottom: var(--space-3);
+}
+
+.dpick__legend {
+  display: block;
+  width: 100%;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.dpick__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 34px;
+  padding: var(--space-1) 0;
+  cursor: pointer;
+}
+
+.dpick__item:hover {
+  background: var(--hair);
+}
+
+.dpick__item--disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.dpick__item--disabled:hover {
+  background: none;
+}
+
+.dpick__check {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-left: var(--space-1);
+}
+
+.dpick__name {
+  flex: 1;
+  min-width: 0;
+}
+
+.dpick__meta {
+  flex: none;
+  padding-right: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--ink-dim);
+}
+
+.dpick__empty {
+  padding: var(--space-3) 0;
+  color: var(--ink-dim);
+}
+
+/* Single select */
+.dsel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.dsel__select {
+  width: 100%;
+  height: 34px;
+  padding: 0 34px 0 var(--space-2);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5l4 4 4-4' fill='none' stroke='%23e9e7e1' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  border: 1px solid var(--hair-strong);
+  border-radius: 0;
+  appearance: none;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  transition: border-color var(--dur-ui) var(--ease-out);
+}
+
+.dsel__select:hover {
+  border-color: var(--ink-dim);
+}
+
+.dsel__select option,
+.dsel__select optgroup {
+  background: var(--bg-raised);
+  color: var(--ink);
+}

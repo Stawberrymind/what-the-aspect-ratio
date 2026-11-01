@@ -1,0 +1,47 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* Viewer: chart work area + ranking rail, filling the window below the bar. */
+/* The Viewer is a working screen: it fills the window exactly, whatever height the top bar wraps to. */
+.app:has(.app__viewer) {
+  height: 100dvh;
+  min-height: 720px;
+}
+
+.app__viewer {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--rail-w);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.app__viewer > aside {
+  min-height: 0;
+  overflow: auto;
+}
+
+.app__page {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .app:has(.app__viewer) {
+    height: auto;
+    min-height: 100dvh;
+  }
+  .app__viewer {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+  .app__viewer > aside {
+    width: 100%;
+    max-height: 80dvh;
+    border-top: 1px solid var(--hair);
+  }
+}

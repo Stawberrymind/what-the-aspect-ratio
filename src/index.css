@@ -1,0 +1,89 @@
+@import '@fontsource-variable/schibsted-grotesk';
+@import '@fontsource/martian-mono/400.css';
+@import '@fontsource/martian-mono/500.css';
+@import './styles/tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  color-scheme: dark;
+  font: 400 var(--text) / 1.4 var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  scrollbar-color: var(--hair-strong) var(--bg);
+  accent-color: var(--red);
+  caret-color: var(--red);
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--blue);
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Measurements, ratios and frame labels. */
+.measure {
+  font-family: var(--font-measure);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Stencilled label: small mono caps used for field names and frame tags. */
+.label {
+  font: 500 var(--label) / 1.2 var(--font-measure);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

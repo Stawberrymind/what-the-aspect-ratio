@@ -1,0 +1,112 @@
+.splayer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: size;
+  background: #000;
+}
+
+/* The full film frame, centred in the visible box. Larger than the box in Fill mode (so it crops). */
+.splayer__frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  container-type: size;
+  transition:
+    width var(--dur-frame) var(--ease-out),
+    height var(--dur-frame) var(--ease-out);
+}
+
+/* 16:9 trailer covering the film frame, centred, so it is cropped to the film ratio. */
+.splayer__media {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, calc(100cqh * 16 / 9));
+  height: max(100%, calc(100cqw * 9 / 16));
+  background: #000;
+}
+
+.splayer__embed,
+.splayer__thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* The app draws its own controls; the embed is picture only. */
+.splayer__embed {
+  pointer-events: none;
+}
+
+/* Poster over the booting embed, faded once playback has started. */
+.splayer__poster {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--dur-frame) var(--ease-out);
+}
+
+.splayer__poster--gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splayer__loading {
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background: var(--bg);
+  border: 1px solid var(--hair-strong);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.splayer__thumb {
+  object-fit: cover;
+  user-select: none;
+}
+
+.splayer__empty {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-raised);
+}
+
+.splayer__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: background-color var(--dur-ui) var(--ease-out);
+}
+
+.splayer__play svg {
+  filter: none;
+  transition: transform var(--dur-ui) var(--ease-out);
+}
+
+.splayer__play:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.splayer__play:hover svg {
+  transform: scale(1.08);
+}
+
+.splayer__play:active svg {
+  transform: scale(0.97);
+}
+
+.splayer__play:focus-visible {
+  outline-offset: -4px;
+}

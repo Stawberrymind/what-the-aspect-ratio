@@ -1,0 +1,42 @@
+/* Projectionist's framing chart. Red marks the ACTIVE ratio only; blue draws every other frame line. */
+:root {
+  --bg: #0c0d0f;
+  --bg-raised: #131417;
+  --bezel: #17181b;
+  --glass: #000;
+  --ink: #e9e7e1;
+  --ink-dim: rgba(233, 231, 225, 0.66);
+  --ink-faint: rgba(233, 231, 225, 0.42);
+  --hair: rgba(233, 231, 225, 0.16);
+  --hair-strong: rgba(233, 231, 225, 0.32);
+  --red: #d9302c;
+  --red-wash: rgba(217, 48, 44, 0.09);
+  --blue: #3aa0ff;
+  --blue-wash: rgba(58, 160, 255, 0.1);
+
+  --font-ui: 'Schibsted Grotesk Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-measure: 'Martian Mono', ui-monospace, Consolas, monospace;
+
+  /* One reading size; hierarchy from weight and position. */
+  --text: 14px;
+  --text-sm: 12px;
+  --label: 11px; /* stencilled mono labels */
+  --title: 17px;
+  --figure: 20px; /* stat figures */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --bar-h: 64px;
+  --rail-w: 400px;
+  --grid-cell: 80px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-frame: 520ms;
+  --dur-ui: 160ms;
+}
